@@ -6,37 +6,47 @@
         <title>{{title}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="public/css">
     </head>
-    <body>
-        <h1>Hello World</h1>
-        <ul>
-            {% for txt in data%}
-            <ul>{{txt.myTable_id}} - {{txt.myTable_txt}}  </ul>
-            {% endfor%}
-        </ul>
-
+    <body style="margin-left: 25%; margin-right: 25%;">
+        <div style="background-color: #00008B; padding: 30px; border-radius: 25px;">
+        <h1 style="text-align:center; color: white;" >BookFace - Carson's Blog Page</h1>
+        </div>
+        
         <hr>
-        <h2>Add stuff</h2>
+        <h2>Create a New Post!</h2>
         <form action="/add" method="POST">
             <div>
-                <label for="myTable">What text would you like to add?</label>
+                <label for="myTable">Create a new Blog Post:</label>
                 <input name="myTable" id="myTable" value="Example Text" />
             </div>
             <div>
-                <button>Add text to table</button>
+                <button>Create Post!</button>
             </div>
         </form>
         <hr>
-        <h2>Delete stuff</h2>
+        <h2>Delete a Post</h2>
                 <form action="/delete" method="POST">
             <div>
-                <label for="myTable">Text to delete from table?</label>
+                <label for="myTable">Post ID to Delete:</label>
                 <input name="myTable" id="myTable" value="1" />
             </div>
             <div>
-                <button>Delete From Table</button>
+                <button>Delete Post!</button>
             </div>
         </form>
+        <hr>
+
+        <div style="padding: 30px;">
+            {% for txt in data%}
+            <div style="background-color: #add8e6; margin: 20px; padding: 15px; border-radius: 25px;">
+            <p>Post ID: <span style="font-weight: bold;">{{txt.myTable_id}}</span></p>
+            <p>User Post:<p> 
+            <div style="background-color: #fff; padding: 5px;">
+            <p>{{txt.myTable_txt}}</p>
+            </div>
+            </div>
+            {% endfor%}
+        </div>
     </body>
 </html>

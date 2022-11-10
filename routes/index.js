@@ -27,8 +27,8 @@ router.get('/', function (req, res, next) {
                      myTable_txt text NOT NULL);
 
                       insert into myTable (myTable_txt)
-                      values ('My first item in the table!'),
-                             ('SQL is useful but quite difficult to wrap your head around');`,
+                      values ('What a cool blog website!'),
+                             ('Man this is way better than Facebook or Twitter!');`,
               () => {
                 db.all(` select myTable_id, myTable_txt from myTable`, (err, rows) => {
                   res.render('index', { title: 'Express', data: rows });
