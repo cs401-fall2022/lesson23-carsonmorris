@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{title}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <ul>
+            {% for txt in data%}
+            <ul>{{txt.myTable_id}} - {{txt.myTable_txt}}  </ul>
+            {% endfor%}
+        </ul>
+
+        <hr>
+        <h2>Add stuff</h2>
+        <form action="/add" method="POST">
+            <div>
+                <label for="myTable">What text would you like to add?</label>
+                <input name="myTable" id="myTable" value="Example Text" />
+            </div>
+            <div>
+                <button>Add text to table</button>
+            </div>
+        </form>
+        <hr>
+        <h2>Delete stuff</h2>
+                <form action="/delete" method="POST">
+            <div>
+                <label for="myTable">Text to delete from table?</label>
+                <input name="myTable" id="myTable" value="1" />
+            </div>
+            <div>
+                <button>Delete From Table</button>
+            </div>
+        </form>
+    </body>
+</html>
