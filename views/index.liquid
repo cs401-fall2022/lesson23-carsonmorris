@@ -6,11 +6,11 @@
         <title>{{title}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="public/css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body style="margin-left: 25%; margin-right: 25%;">
-        <div style="background-color: #00008B; padding: 30px; border-radius: 25px;">
-        <h1 style="text-align:center; color: white;" >BookFace - Carson's Blog Page</h1>
+    <body>
+        <div class = "topTitle">
+        <h1>BookFace - Carson's Blog Page</h1>
         </div>
         
         <hr>
@@ -36,15 +36,15 @@
             </div>
         </form>
         <hr>
-
+        <h1>Today's Blog Posts!</h1>
         <div style="padding: 30px;">
             {% for txt in data%}
-            <div style="background-color: #add8e6; margin: 20px; padding: 15px; border-radius: 25px;">
-            <p>Post ID: <span style="font-weight: bold;">{{txt.myTable_id}}</span></p>
-            <p>User Post:<p> 
-            <div style="background-color: #fff; padding: 5px;">
-            <p>{{txt.myTable_txt}}</p>
-            </div>
+            <div class = "postBlock">
+                <p>Post ID: {{txt.myTable_id}}</p>
+                <p>User Post:<p> 
+                <div class = "postBody">
+                    <p>{{txt.myTable_txt}}</p>
+                </div>
             </div>
             {% endfor%}
         </div>

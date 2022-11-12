@@ -1,6 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-left: 25%; 
+  margin-right: 25%;
 }
 
 a {
@@ -9,4 +11,23 @@ a {
 
 h1 {
   text-align: center;
+}
+
+.topTitle {
+  border-radius: 25px;
+  background-color: #add8e6; 
+  margin: 25px;
+  padding: 10px;
+}
+
+.postBlock {
+  background-color: #add8e6; 
+  margin: 20px; 
+  padding: 15px; 
+  border-radius: 10px;
+}
+
+.postBody {
+  background-color: #fff; 
+  padding: 5px;
 }
