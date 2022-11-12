@@ -24,13 +24,15 @@ router.get('/', function (req, res, next) {
             console.log("Creating table and inserting some sample data");
             db.exec(`create table myTable (
                      myTable_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                     myTable_txt text NOT NULL);
-
-                      insert into myTable (myTable_txt)
-                      values ('What a cool blog website!'),
-                             ('Man this is way better than Facebook or Twitter!');`,
+                     myTable_txt text NOT NULL,
+                     myTable_author text NOT NULL,
+                     myTable_title text NOT NULL);
+                      
+                      insert into myTable (myTable_txt, myTable_author, myTable_title)
+                      values ('What a cool blog website!', 'Socrates', 'First Post!'),
+                             ('Man this is way better than Facebook or Twitter!', 'Archimedes', 'What a cool Site!');`,
               () => {
-                db.all(` select myTable_id, myTable_txt from myTable`, (err, rows) => {
+                db.all(` select myTable_id, myTable_txt, myTable_author, myTable_title from myTable`, (err, rows) => {
                   res.render('index', { title: 'Express', data: rows });
                 });
               });
@@ -47,14 +49,14 @@ router.post('/add', (req, res, next) => {
         console.log("Getting error " + err);
         exit(1);
       }
-      if (req.body.myTable.toLowerCase().includes("drop") || req.body.myTable.toLowerCase().includes("delete")){
+      if (req.body.myTableText.toLowerCase().includes("drop") || req.body.myTableText.toLowerCase().includes("delete")){
         console.log("Nice try buddy, not on my watch!");
-        db.exec(`insert into myTable ( myTable_txt)
-                values ('Nuh uh uh!');`)
+        db.exec(`insert into myTable ( myTable_txt, myTable_author, myTable_title)
+                values ('Nuh uh uh!', 'n/a', 'n/a');`)
       }else{
         console.log("inserting " + req.body.myTable);
-        db.exec(`insert into myTable ( myTable_txt)
-                  values ('${req.body.myTable}');`)
+        db.exec(`insert into myTable ( myTable_txt, myTable_author, myTable_title)
+                  values ('${req.body.myTableText}', '${req.body.myTableAuthor}', '${req.body.myTableTitle}');`)
       }
       
       //redirect to homepage
