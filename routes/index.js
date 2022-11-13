@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
         (err, rows) => {
           if (rows.length === 1) {
             console.log("Table exists!");
-            db.all(` select myTable_id, myTable_txt from myTable`, (err, rows) => {
+            db.all(` select myTable_id, myTable_txt, myTable_author, myTable_title from myTable`, (err, rows) => {
               console.log("returning " + rows.length + " records");
               res.render('index', { title: 'Express', data: rows });
             });
