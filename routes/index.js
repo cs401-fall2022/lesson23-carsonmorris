@@ -87,4 +87,27 @@ router.post('/delete', (req, res, next) => {
   );
 })
 
+router.post('/update', (req, res, next) => {
+  var db = new sqlite3.Database('mydb.sqlite3',
+    sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE,
+    (err) => {
+      if (err) {
+        console.log("Getting error " + err);
+        exit(1);
+      }
+      if (req.body.myTableText.toLowerCase().includes("drop") || req.body.myTableText.toLowerCase().includes("delete")){
+        console.log("Nice try buddy, not on my watch!");
+        db.exec(`insert into myTable ( myTable_txt, myTable_author, myTable_title)
+                values ('Nuh uh uh!', 'n/a', 'n/a');`)
+      }else{
+        console.log("updating post...");
+        db.exec(`update myTable set myTable_txt = '${req.body.myTableText}' where myTable_id = '${req.body.myTableID}';`)
+      }
+      
+      //redirect to homepage
+      res.redirect('/');
+    }
+  );
+})
+
 module.exports = router;

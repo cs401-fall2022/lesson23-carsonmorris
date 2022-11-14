@@ -45,6 +45,22 @@
             </div>
         </form>
         <hr>
+        <h2>Update an Existing Post</h2>
+        <form action="/update" method="POST">
+            <div>
+                <label for="myTableID">Post ID to Update:</label>
+                <input name="myTableID" id="myTableID" value="Example: 1" />
+                <br>
+                <br>
+                <label for="myTableText">New Content:  </label>
+                <input name="myTableText" id="myTableText" value="Example Text" />
+            </div>
+            <div>
+                <br>    
+                <button>Update Post!</button>
+            </div>
+        </form>
+        <hr>
         <h1>Today's Blog Posts!</h1>
         <div style="padding: 30px;">
             {% for txt in data%}
