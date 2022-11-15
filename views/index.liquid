@@ -10,23 +10,25 @@
     </head>
     <body>
         <div class = "topTitle">
-        <h1>BookFace - Carson's Blog Page</h1>
+        <h1>- BookFace -</h1>
+        <h2 class = "secondaryTitle">Carson's Blog Page</h2>
         </div>
         
         <hr>
+        <div class = "editingPosts">
         <h2>Create a New Post!</h2>
         <form action="/add" method="POST">
             <div>
                 <label for="myTableAuthor">Author Name:</label>
-                <input name="myTableAuthor" id="myTableTitle" value="Example Text" />
+                <input name="myTableAuthor" id="myTableTitle" value="" />
                 <br>
                 <br>
                 <label for="myTableTitle">Title: </label>
-                <input name="myTableTitle" id="myTableTitle" value="Example Text" />
+                <input name="myTableTitle" id="myTableTitle" value="" />
                 <br>
                 <br>
                 <label for="myTableText">Content:  </label>
-                <input name="myTableText" id="myTableText" value="Example Text" />
+                <input name="myTableText" id="myTableText" value="" />
             </div>
             <div>
                 <br>    
@@ -38,7 +40,7 @@
                 <form action="/delete" method="POST">
             <div>
                 <label for="myTable">Post ID to Delete:</label>
-                <input name="myTable" id="myTable" value="1" />
+                <input name="myTable" id="myTable" value="Example: 1" />
             </div>
             <div>
                 <button>Delete Post!</button>
@@ -53,15 +55,19 @@
                 <br>
                 <br>
                 <label for="myTableText">New Content:  </label>
-                <input name="myTableText" id="myTableText" value="Example Text" />
+                <input name="myTableText" id="myTableText" value="" />
             </div>
             <div>
                 <br>    
                 <button>Update Post!</button>
             </div>
         </form>
+        </div>
         <hr>
-        <h1>Today's Blog Posts!</h1>
+        <div class = "topTitle">
+            <h1>Today's Blog Posts!</h1>
+        </div>
+        
         <div style="padding: 30px;">
             {% for txt in data%}
             <div class = "postBlock">
@@ -74,5 +80,6 @@
             </div>
             {% endfor%}
         </div>
+    
     </body>
 </html>

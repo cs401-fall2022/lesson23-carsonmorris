@@ -3,6 +3,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-left: 25%; 
   margin-right: 25%;
+  background-image: linear-gradient(#6a6a6a, rgb(172, 172, 172),#6a6a6a );
+}
+
+.editingPosts {
+  background-color: lightgray;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
+  border-style: solid;
 }
 
 a {
@@ -11,23 +20,42 @@ a {
 
 h1 {
   text-align: center;
+  Color: white;
+}
+
+.secondaryTitle {
+  text-align: center;
+  color: white;
 }
 
 .topTitle {
   border-radius: 25px;
-  background-color: #add8e6; 
+  background-color: #3c3c3c; 
   margin: 25px;
   padding: 10px;
+  border-style: solid;
 }
 
 .postBlock {
-  background-color: #add8e6; 
+  background-color: #fe8787; 
   margin: 20px; 
   padding: 15px; 
   border-radius: 10px;
+  border-style: solid;
 }
 
 .postBody {
   background-color: #fff; 
   padding: 5px;
+  border-style: solid;
+}
+
+#myTableText {
+  width: 75%;
+}
+
+label { 
+  display: inline-block; 
+  width: 100px; 
+  text-align: left; 
 }
